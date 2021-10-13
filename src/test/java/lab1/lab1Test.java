@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 import lab1.lab1.Patient;
 import lab1.lab1.Patient.Builder;
 public class lab1Test {
-    public static double EPS = 0.0000001;
-
     @Test
     public void testSetFirstNamePositive() {
 

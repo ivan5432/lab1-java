@@ -28,6 +28,10 @@ public class lab1 {
             return this.age;
         }
     }
+
+    /**
+     * Patient class. Inherited from Person.
+     */
     public static class Patient extends Person{
         String socialGroup, bloodGroup;
         Patient(String firstName, String middleName, String lastName, int age, String socialGroup, String bloodGroup) {
