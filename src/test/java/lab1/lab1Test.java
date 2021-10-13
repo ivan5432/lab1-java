@@ -17,8 +17,7 @@ public class lab1Test {
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testSetFirstNameNegative() {
 
-        Builder builder = new Builder();
-        builder.setFirstName("");
+        Patient patient = new Patient.Builder().setFirstName("").build();
     }
 
     @Test(dataProvider = "equalsProvider")
@@ -29,6 +28,21 @@ public class lab1Test {
 
     @DataProvider
     public Object[][] equalsProvider() {
-        return new Object[][] {{new Patient("FName", "MName", "LName",30, "Group1", "A0"), new Patient("FName", "MName", "LName",30, "Group1", "A0"), true}};
+        return new Object[][] {{
+                new Patient.Builder()
+                    .setFirstName("FName")
+                    .setMiddleName("MName")
+                    .setLastName("LName")
+                    .setAge(30)
+                    .setSocialGroup("Group1")
+                    .setBloodGroup("A0").build(),
+                new Patient.Builder()
+                        .setFirstName("FName")
+                        .setMiddleName("MName")
+                        .setLastName("LName")
+                        .setAge(30)
+                        .setSocialGroup("Group1")
+                        .setBloodGroup("A0").build(),
+                true}};
     }
 }

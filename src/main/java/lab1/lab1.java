@@ -34,10 +34,10 @@ public class lab1 {
      */
     public static class Patient extends Person{
         String socialGroup, bloodGroup;
-        Patient(String firstName, String middleName, String lastName, int age, String socialGroup, String bloodGroup) {
-            super(firstName, middleName, lastName, age);
-            this.socialGroup=socialGroup;
-            this.bloodGroup=bloodGroup;
+        private Patient(Builder b) {
+            super(b.firstName, b.middleName, b.lastName, b.age);
+            this.socialGroup=b.socialGroup;
+            this.bloodGroup=b.bloodGroup;
         }
         public static class Builder{
             private String firstName, middleName, lastName, socialGroup, bloodGroup;
@@ -77,7 +77,7 @@ public class lab1 {
                 return this;
             }
             public Patient build(){
-                return new Patient(firstName, middleName, lastName, age, socialGroup, bloodGroup);
+                return new Patient(this);
             }
 
         }
